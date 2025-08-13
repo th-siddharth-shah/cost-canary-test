@@ -24,7 +24,7 @@
     "authorizations": [
       {
         "principalId": "ca805e02-2a7e-432b-8128-96c5d50230c6",
-        "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fccb2d97",
+        "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
         "principalIdDisplayName": "cost-canary-reader"
       },
       {
