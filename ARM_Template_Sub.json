@@ -1,5 +1,5 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "mspOfferName": {
@@ -24,7 +24,7 @@
     "authorizations": [
       {
         "principalId": "91934ac2-bb28-4083-bcda-e042229fdc0e",
-        "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+        "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fccb2d97",
         "principalIdDisplayName": "cost-canary-reader"
       },
       {
