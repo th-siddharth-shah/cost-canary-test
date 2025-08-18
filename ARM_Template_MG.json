@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "mspOfferName": {
+      "type": "string",
+      "metadata": {
+        "description": "Unique name for the MSP offer"
+      },
+      "defaultValue": "Cost Canary Integration"
+    },
+    "mspOfferDescription": {
+      "type": "string",
+      "metadata": {
+        "description": "Description of the Managed Service Provider offer"
+      },
+      "defaultValue": "Delegates Reader + Cost Management Reader access to Cost Canary for all subscriptions under this management group."
+    }
+  },
+  "variables": {
+    "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
+    "mspAssignmentName": "[guid(parameters('mspOfferName'))]",
+    "managedByTenantId": "77cc0b6c-04b9-4629-b6eb-4f4b8f249ac2",
+    "authorizations": [
+      {
+        "principalId": "91934ac2-bb28-4083-bcda-e042229fdc0e",
+        "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+        "principalIdDisplayName": "Cost Canary Reader"
+      },
+      {
+        "principalId": "91934ac2-bb28-4083-bcda-e042229fdc0e",
+        "roleDefinitionId": "72fafb9e-0641-4937-9268-a91bfd8191a3",
+        "principalIdDisplayName": "Cost Canary Cost Management Reader"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ManagedServices/registrationDefinitions",
+      "apiVersion": "2020-02-01-preview",
+      "scope": "/providers/Microsoft.Management/managementGroups/011302ce-169b-4efc-a138-731c21b04333",
+      "name": "[variables('mspRegistrationName')]",
+      "properties": {
+        "registrationDefinitionName": "[parameters('mspOfferName')]",
+        "description": "[parameters('mspOfferDescription')]",
+        "managedByTenantId": "[variables('managedByTenantId')]",
+        "authorizations": "[variables('authorizations')]"
+      }
+    },
+    {
+      "type": "Microsoft.ManagedServices/registrationAssignments",
+      "apiVersion": "2020-02-01-preview",
+      "scope": "/providers/Microsoft.Management/managementGroups/011302ce-169b-4efc-a138-731c21b04333",
+      "name": "[variables('mspAssignmentName')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ManagedServices/registrationDefinitions', variables('mspRegistrationName'))]"
+      ],
+      "properties": {
+        "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions', variables('mspRegistrationName'))]"
+      }
+    }
+  ],
+  "outputs": {
+    "mspOfferName": {
+      "type": "string",
+      "value": "[concat('Managed by ', parameters('mspOfferName'))]"
+    },
+    "authorizations": {
+      "type": "array",
+      "value": "[variables('authorizations')]"
+    }
+  }
+}
