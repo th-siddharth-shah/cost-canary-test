@@ -23,13 +23,13 @@
     "managedByTenantId": "77cc0b6c-04b9-4629-b6eb-4f4b8f249ac2",
     "authorizations": [
       {
-        "principalId": "d2677167-1aa2-490d-985f-54abd059d7b6",
-        "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+        "principalId": "2435c95d-0ed9-496e-9d8a-ba8756f0d5fd",
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
         "principalIdDisplayName": "cost-canary-reader"
       },
       {
-        "principalId": "d2677167-1aa2-490d-985f-54abd059d7b6",
-        "roleDefinitionId": "72fafb9e-0641-4937-9268-a91bfd8191a3",
+        "principalId": "2435c95d-0ed9-496e-9d8a-ba8756f0d5fd",
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/72fafb9e-0641-4937-9268-a91bfd8191a3",
         "principalIdDisplayName": "cost-canary-cost-management-reader"
       }
     ]
