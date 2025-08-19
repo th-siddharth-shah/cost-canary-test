@@ -23,12 +23,12 @@
     "managedByTenantId": "77cc0b6c-04b9-4629-b6eb-4f4b8f249ac2",
     "authorizations": [
       {
-        "principalId": "2435c95d-0ed9-496e-9d8a-ba8756f0d5fd",
+        "principalId": "91934ac2-bb28-4083-bcda-e042229fdc0e",
         "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
         "principalIdDisplayName": "cost-canary-reader"
       },
       {
-        "principalId": "2435c95d-0ed9-496e-9d8a-ba8756f0d5fd",
+        "principalId": "91934ac2-bb28-4083-bcda-e042229fdc0e",
         "roleDefinitionId": "72fafb9e-0641-4937-9268-a91bfd8191a3",
         "principalIdDisplayName": "cost-canary-cost-management-reader"
       }
